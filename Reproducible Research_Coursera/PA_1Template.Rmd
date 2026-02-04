@@ -1,11 +1,11 @@
 ---
-title: "Reproduceable Research Project 1"
+title: "Reproducible Research Project 1: Activity Monitoring"
 author: "Bobby Sims"
 date: "`r Sys.Date()`"
 output: html_document
 ---
 
-### Load libraries
+### Load Packages
 
 ```{r}
 library(tidyverse)
@@ -135,12 +135,12 @@ NA_ROWS <- activity %>%
   slice (c(1:288, 2017:2304, 8929:9216, 9793:10080, 11233:11520, 11521:11808, 12673:12960, 17281:17568))
 ```
 
-### Preview overlay of isolated NA with mean activity values per interval
+### Preview comparison of isolated NA with mean activity values per interval (optional) 
 
 ```{r}
 NA_OCT1 <- NA_ROWS[1:288,]
 
-NA_Overlay_Oct1 <- cbind(SD1, NA_OCT1)
+NA_compare_Oct1 <- cbind(SD1, NA_OCT1)
 ```
 
 ## Create a new dataset that is equal to the original dataset but with the missing data filled in
@@ -168,6 +168,8 @@ Idx <- is.na(activity_1$steps) & seq_along(activity_1$steps) %in% segments
 activity_1$steps <- replace(activity_1$steps, Idx, SD1$Steps[match(activity_1$interval[Idx], SD1$Interval)])
 ```
 
+## Begin plots With imputed values dataset, activity_1
+
 
 ### Generate Total Daily Steps Histogram
 
@@ -185,16 +187,11 @@ ggplot(SD2, aes( x = date, weight = steps))+
 
 ### Calculate and report mean and median of the total number of steps taken daily
 
-
-
-
 #### Mean
 ```{r}
 mean(SD2$steps, trim = 0, na.rm =TRUE)
 ```
 
-
-### Generate plot
 ```{r}
 hist(SD2$steps, breaks = 61, main = "Total Steps Daily", xlab = "steps")
 abline(v = mean(SD2$steps),
@@ -207,12 +204,11 @@ text( x = mean(SD2$steps),
       pos = 4)
 ```
   
-### Median
+#### Median
 ```{r}
 median(SD2$steps)
 ```
 
-### Generate plot
 ```{r}
 hist(SD2$steps, breaks = 61, main = "Total Steps Daily", xlab = "steps")
 abline(v = median (SD2$steps),
@@ -272,7 +268,7 @@ x3 <- Max3$WE_Steps
 y3 <- Max3$WE_Interval
 ```
 
-### Generate plots
+### Generate plot for weekday vs weekend time series
 
 ```{r}
 par(mfrow=c(2,1))
@@ -287,7 +283,7 @@ abline( v = 835,
         col ="red",
         lwd =2)
 text(x = 865, y = 190,
-     labels = sprintf("Max Steps = %.2f at inteval 835", (x2)),
+     labels = sprintf("Max Steps = %.2f at interval 835", (x2)),
      adj = 0,
      cex =0.6)
 
