@@ -1,8 +1,8 @@
 # Reproducible Research Project 1: Activity Monitoring
 
-## Bobby Sims
+#### Author: Bobby Sims
 
-## Load package
+### Load package
 
 `library(tidyverse)`
 
@@ -28,7 +28,7 @@
 
 `ggplot(SD, aes( x = Date, weight = Steps))+  geom_histogram(binwidth = 1, fill = "blue", color = "black")+  labs(title = "Total Steps Taken Each Day",  x = "Date", y = "Steps")`
 
-![](Total%20Steps%20Taken%20Each%20Day_activity.png)
+![](https://github.com/Bc5Neep/Reproducible-Research-Coursera/blob/main/Activity%20Monitoring%20plots/Total%20Steps%20Taken%20Each%20Day_activity.png)
 
 ### Calculate and report mean and median of the total number of steps taken daily
 
@@ -38,7 +38,7 @@
 
 `hist(SD$Steps, breaks = 53, main = "Total Steps Daily", xlab = "steps") abline(v = mean(SD$Steps), col ="red", lwd = 3) text( x = mean(SD$Steps),       y = 5.5,       labels = sprintf("Mean = %.2f", mean(SD$Steps)), col ="black", pos = 4)`
 
-![](Mean%20Total%20Steps%20Daily_activity.png)
+![](https://github.com/Bc5Neep/Reproducible-Research-Coursera/blob/main/Activity%20Monitoring%20plots/Mean%20Total%20Steps%20Daily_activity.png)
 
 #### Median
 
@@ -46,7 +46,7 @@
 
 `hist(SD$Steps, breaks = 53, main = "Total Steps Daily", xlab = "steps") abline(v = median (SD$Steps), col = "black", lwd =5) text( x = median(SD$Steps),       y = 5.5,       labels = sprintf("Median = %.2f", median(SD$Steps)), col ="black", pos = 4)`
 
-![](Median%20Total%20Steps_activity.png)
+![](https://github.com/Bc5Neep/Reproducible-Research-Coursera/blob/main/Activity%20Monitoring%20plots/Median%20Total%20Steps_activity.png)
 
 ### Time series plot with 5 minute interval and average number of steps taken
 
@@ -70,7 +70,7 @@
 
 `plot(SD1$Interval, SD1$Steps,  type = "l", xlab = "Intervals (5 min)", ylab = "Steps", main = "Average Daily Step Activity") abline( v = 835, col ="red", lwd =2)  text(x = 865, y = 190,  labels = sprintf("Max Avg Steps = %.2f at interval 835", (y1)), adj = 0, cex =0.6)`
 
-![](Average%20Daily%20Step_activity.png)
+![](https://github.com/Bc5Neep/Reproducible-Research-Coursera/blob/main/Activity%20Monitoring%20plots/Average%20Daily%20Step_activity.png)
 
 ### Calculate total number of NA values
 
@@ -120,7 +120,7 @@
 
 `ggplot(SD2, aes( x = date, weight = steps))+  geom_histogram(binwidth = 1, fill = "blue", color = "black")+  labs(title = "Total Steps Taken Each Day", x = "Date", y = "Steps")`
 
-![](Total%20Steps%20Taken%20Each%20Day_activity_1.png)
+![](https://github.com/Bc5Neep/Reproducible-Research-Coursera/blob/main/Activity%20Monitoring%20plots/Average%20Daily%20Step_activity.png)
 
 ### Generate new plots of mean and median total steps daily
 
@@ -130,7 +130,7 @@ mean(SD2\$steps, trim = 0, na.rm =TRUE)
 
 `hist(SD2$steps, breaks = 61, main = "Total Steps Daily", xlab = "steps") abline(v = mean(SD2$steps), col = "red", lwd = 3) text( x = mean(SD2$steps),       y = 5.5,       labels = sprintf("Mean = %.2f", mean(SD2$steps)), col ="black", pos = 4)`
 
-![](Mean%20Total%20Steps%20Daily_activity_1.png)
+![](https://github.com/Bc5Neep/Reproducible-Research-Coursera/blob/main/Activity%20Monitoring%20plots/Mean%20Total%20Steps%20Daily_activity_1.png)
 
 #### Median
 
@@ -138,7 +138,7 @@ mean(SD2\$steps, trim = 0, na.rm =TRUE)
 
 `hist(SD2$steps, breaks = 61, main = "Total Steps Daily", xlab = "steps") abline(v = median (SD2$steps), col = "black", lwd =5) text( x = median(SD2$steps),       y = 5.5,       labels = sprintf("Median = %.2f", median(SD2$steps)), col ="black", pos = 4)`
 
-![](Median%20Total%20Steps%20Daily_activity_1.png)
+![](https://github.com/Bc5Neep/Reproducible-Research-Coursera/blob/main/Activity%20Monitoring%20plots/Median%20Total%20Steps%20Daily_activity_1.png)
 
 ### Generate weekday daily step activity subset from activity_1
 
@@ -186,4 +186,4 @@ mean(SD2\$steps, trim = 0, na.rm =TRUE)
 
 `plot(SD_WE, type ="l",  xlab = "Intervals (5 min)",  ylab = "Steps", main = "Weekend")  abline( v = 855, col ="red", lwd =2)  text(x = 865, y = 150, labels = sprintf("Max Steps = %.2f at interval 855", (x3)),  adj = 0, cex = 0.6)`
 
-![](Daily%20Step%20Activity%20Weekday%20vs%20Weekend%20Activity_1.png)
+![](https://github.com/Bc5Neep/Reproducible-Research-Coursera/blob/main/Activity%20Monitoring%20plots/Daily%20Step%20Activity%20Weekday%20vs%20Weekend%20Activity_1.png)
