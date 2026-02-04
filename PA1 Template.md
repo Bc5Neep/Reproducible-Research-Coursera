@@ -186,4 +186,4 @@ mean(SD2\$steps, trim = 0, na.rm =TRUE)
 
 `plot(SD_WE, type ="l",  xlab = "Intervals (5 min)",  ylab = "Steps", main = "Weekend")  abline( v = 855, col ="red", lwd =2)  text(x = 865, y = 150, labels = sprintf("Max Steps = %.2f at interval 855", (x3)),  adj = 0, cex = 0.6)`
 
-![](Daily Step Activity Weekday vs Weekend Activity_1.png)
+![](Daily%20Step%20Activity%20Weekday%20vs%20Weekend%20Activity_1.png)
