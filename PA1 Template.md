@@ -8,7 +8,7 @@
 
 ### Import file and create data object
 
-`activity <- read_csv("activity.csv") sum(activity\$steps, na.rm = TRUE)`
+`activity <- read_csv("activity.csv") sum(activity$steps, na.rm = TRUE)`
 
 ### Designate values for aggregation
 
@@ -20,7 +20,7 @@
 
 `SD <- aggregate(Steps~Date, data = activity, sum)`
 
-`SDI <- aggregate(Steps\~Date + Interval, activity, sum)`
+`SDI <- aggregate(Steps~Date + Interval, activity, sum)`
 
 ### Calculate Total Number of Steps Taken per Day
 
@@ -34,7 +34,7 @@
 
 #### Mean
 
-`mean(SD\$Steps, trim = 0, na.rm =TRUE)`
+`mean(SD$Steps, trim = 0, na.rm =TRUE)`
 
 `hist(SD$Steps, breaks = 53, main = "Total Steps Daily", xlab = "steps") abline(v = mean(SD$Steps), col ="red", lwd = 3) text( x = mean(SD$Steps),       y = 5.5,       labels = sprintf("Mean = %.2f", mean(SD$Steps)), col ="black", pos = 4)`
 
@@ -56,7 +56,7 @@
 
 ### Determine Range
 
-`range(SD1\$Steps)`
+`range(SD1$Steps)`
 
 ### Identify max mean steps and interval
 
@@ -146,7 +146,7 @@ mean(SD2\$steps, trim = 0, na.rm =TRUE)
 
 ### Generate weekend daily step activity subset from activity_1
 
-`weekend \<- activity_1 %>% slice (c(1441:2016, 3458:4032, 5474:6048, 7489:8065, 9506:10081, 11522:12097, 13537:14112, 11553:16128))`
+`weekend <- activity_1 %>% slice (c(1441:2016, 3458:4032, 5474:6048, 7489:8065, 9506:10081, 11522:12097, 13537:14112, 11553:16128))`
 
 ### Designate values for aggregate and plot generation
 
@@ -172,7 +172,7 @@ mean(SD2\$steps, trim = 0, na.rm =TRUE)
 
 `y2 <- Max2$WD_Interval`
 
-`Max3 \<- SD_WE [which.max(SD_WE$WE_Steps),]`
+`Max3 <- SD_WE [which.max(SD_WE$WE_Steps),]`
 
 `x3 <- Max3$WE_Steps`
 
