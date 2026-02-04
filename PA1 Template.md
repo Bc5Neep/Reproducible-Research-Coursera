@@ -1,4 +1,4 @@
-# Reproducible Research Project 1: Activity Monitoring
+# ![](Activity Monitoring plots/Median Total Steps Daily_activity_1.png)Reproducible Research Project 1: Activity Monitoring
 
 #### Author: Bobby Sims
 
@@ -138,7 +138,11 @@ mean(SD2\$steps, trim = 0, na.rm =TRUE)
 
 `hist(SD2$steps, breaks = 61, main = "Total Steps Daily", xlab = "steps") abline(v = median (SD2$steps), col = "black", lwd =5) text( x = median(SD2$steps),       y = 5.5,       labels = sprintf("Median = %.2f", median(SD2$steps)), col ="black", pos = 4)`
 
+<<<<<<< HEAD
 ![](https://github.com/Bc5Neep/Reproducible-Research-Coursera/blob/main/Activity%20Monitoring%20plots/Median%20Total%20Steps%20Daily_activity_1.png)
+=======
+![](https://github.com/Bc5Neep/Reproducible-Research-Coursera/blob/main/Activity%20Monitoring%20plots/Total%20Steps%20Taken%20Each%20Day_activity.png)
+>>>>>>> d7ccc27586eea3ebeb3b6a73fff3ff985f2fc8b9
 
 ### Generate weekday daily step activity subset from activity_1
 
