@@ -1,4 +1,4 @@
-# ![](Activity Monitoring plots/Median Total Steps Daily_activity_1.png)Reproducible Research Project 1: Activity Monitoring
+# Reproducible Research Project 1: Activity Monitoring
 
 #### Author: Bobby Sims
 
