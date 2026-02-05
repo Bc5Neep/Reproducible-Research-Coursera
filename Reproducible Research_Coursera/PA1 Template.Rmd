@@ -10,16 +10,17 @@ output: html_document
 ```{r}
 library(tidyverse)
 ```
+
 ### Import file and create data object
 
-```{r echo = TRUE} 
+```{r echo = TRUE}
 activity <- read_csv("activity.csv")
 sum(activity$steps, na.rm = TRUE)
 ```
 
 ### Designate values for aggregation
 
-```{r} 
+```{r}
 Steps = activity$steps
 Date = activity$date
 Interval = activity$interval
@@ -46,7 +47,9 @@ ggplot(SD, aes( x = Date, weight = Steps))+
 ```{r}
 mean(SD$Steps, trim = 0, na.rm =TRUE)
 ```
+
 ### Generate plot
+
 ```{r}
 hist(SD$Steps, breaks = 53, main = "Total Steps Daily", xlab = "steps")
 abline(v = mean(SD$Steps),
@@ -64,6 +67,7 @@ text( x = mean(SD$Steps),
 ```{r}
 median(SD$Steps)
 ```
+
 ### Generate plot
 
 ```{r}
@@ -80,7 +84,8 @@ text( x = median(SD$Steps),
 
 ### Generate time series plot with 5 minute interval and average number of steps taken
 
-#### Average steps per interval across days 
+#### Average steps per interval across days
+
 ```{r}
 SD1 <- aggregate(Steps~Interval, data = activity, mean)
 ```
@@ -91,7 +96,7 @@ SD1 <- aggregate(Steps~Interval, data = activity, mean)
 range(SD1$Steps)
 ```
 
-#### Identify max mean steps and interval 
+#### Identify max mean steps and interval
 
 ```{r}
 Max1 <- SD1 [which.max(SD1$Steps),]
@@ -123,6 +128,7 @@ colSums(is.na(activity))
 ```
 
 ### What are their row numbers? First expand max.print and print list
+
 ```{r}
 options(max.print = 3000)
 which(is.na(activity))
@@ -135,7 +141,7 @@ NA_ROWS <- activity %>%
   slice (c(1:288, 2017:2304, 8929:9216, 9793:10080, 11233:11520, 11521:11808, 12673:12960, 17281:17568))
 ```
 
-### Preview comparison of isolated NA with mean activity values per interval (optional) 
+### Preview comparison of isolated NA with mean activity values per interval (optional)
 
 ```{r}
 NA_OCT1 <- NA_ROWS[1:288,]
@@ -150,6 +156,7 @@ NA_compare_Oct1 <- cbind(SD1, NA_OCT1)
 ```{r}
 activity_1 <- activity
 ```
+
 ### Concatenate NA row segments
 
 ```{r}
@@ -170,10 +177,9 @@ activity_1$steps <- replace(activity_1$steps, Idx, SD1$Steps[match(activity_1$in
 
 ## Begin plots With imputed values dataset, activity_1
 
-
 ### Generate Total Daily Steps Histogram
 
-```{r} 
+```{r}
 SD2 <- aggregate(steps~date, data = activity_1, sum)
 
 ggplot(SD2, aes( x = date, weight = steps))+
@@ -183,11 +189,12 @@ ggplot(SD2, aes( x = date, weight = steps))+
   labs(title = "Total Steps Taken Each Day",
        x = "Date",
        y = "Steps")
-```       
+```
 
 ### Calculate and report mean and median of the total number of steps taken daily
 
 #### Mean
+
 ```{r}
 mean(SD2$steps, trim = 0, na.rm =TRUE)
 ```
@@ -203,8 +210,9 @@ text( x = mean(SD2$steps),
       col ="black",
       pos = 4)
 ```
-  
+
 #### Median
+
 ```{r}
 median(SD2$steps)
 ```
@@ -219,8 +227,8 @@ text( x = median(SD2$steps),
       labels = sprintf("Median = %.2f", median(SD2$steps)),
       col ="black",
       pos = 4)
-```      
-      
+```
+
 ### Generate weekday daily step activity subset from activity_1
 
 ```{r}
@@ -301,4 +309,3 @@ text(x = 865,
      adj = 0,
      cex = 0.6)
 ```
-
